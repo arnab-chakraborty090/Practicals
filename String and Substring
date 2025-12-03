@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <string.h>
+int stringposition(const char *str1,const char *str2)
+{
+    char *i=strstr(str1,str2);
+    if(i!=NULL)
+    {
+        return (int)(i-str1);
+    }
+    else
+        return -1;
+}
+int main()
+{
+    char mainStr[100],subStr[100];
+    printf("Enter the main string:");
+    scanf("%s",mainStr);
+    printf("Enter the sub string:");
+    scanf("%s",subStr);
+    int position=stringposition(mainStr,subStr);
+    if(position==-1)
+        printf("Substring not found. Position = -1");
+    else
+        printf("Substring found at position = %d",position);
+    return 0;
+}
