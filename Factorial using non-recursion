@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <stdlib.h>
+int factorial(int);
+
+int main()
+{
+    int factorial(int n)
+    {
+        int i,fact=1;
+        for(i=1;i<=n;i++)
+            fact=fact*i;
+        return fact;
+    }
+    int num,result;
+    printf("Enter the number:");
+    scanf("%d",&num);
+    if(num>0)
+    {
+        result=factorial(num);
+        printf("Factorial of the number is = %d",result);
+    }
+    else if(num==0)
+    {
+        result=1;
+        printf("Factorial of the number is = %d",result);
+    }
+    else
+        printf("Factorial does not exist");
+    return 0;
+}
