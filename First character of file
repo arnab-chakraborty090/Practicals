@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    FILE *file,*filename="name.txt";
+    char temp;
+    file=fopen(filename,"r");
+    if(file==NULL)
+    {
+        printf("Error! The file doesn't exist");
+        return 1;
+    }
+    temp=fgetc(file);
+    printf("First character : %c",temp);
+    return 0;
+}
