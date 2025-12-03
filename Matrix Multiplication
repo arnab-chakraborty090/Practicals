@@ -1,0 +1,60 @@
+#include <stdio.h>
+void multiply(int r,int c,int a[100][100],int b[100][100],int result[100][100])
+{
+    for(int i=0;i<r;i++)
+    {
+        for(int j=0;j<c;j++)
+        {
+                result[i][j]=0;
+                for(int k=0;k<c;k++)
+                {
+                    result[i][j]+=a[i][k]*b[k][j];
+                }
+        }
+    }
+}
+void display(int r,int c,int result[100][100])
+{
+    for(int i=0;i<r;i++)
+    {
+        for(int j=0;j<c;j++)
+        {
+            printf("%d ",result[i][j]);
+        }
+        printf("\n");
+    }
+}
+int main()
+{
+    int r,c,result[100][100];
+    printf("Enter number of rows:");
+    scanf("%d",&r);
+    printf("Enter number of columns:");
+    scanf("%d",&c);
+
+    int a[100][100],b[100][100];
+    printf("Enter elements of matrix 1:\n");
+    for(int i=0;i<r;i++)
+    {
+        for(int j=0;j<c;j++)
+        {
+            printf("Enter element a%d%d:",i+1,j+1);
+            scanf("%d",&a[i][j]);
+        }
+    }
+
+    printf("Enter elements of matrix 2:\n");
+    for(int i=0;i<r;i++)
+    {
+        for(int j=0;j<c;j++)
+        {
+            printf("Enter element b%d%d:",i+1,j+1);
+            scanf("%d",&b[i][j]);
+        }
+    }
+
+    printf("Product of the two matrices:\n");
+    multiply(r,c,a,b,result);
+    display(r,c,result);
+    return 0;
+}
