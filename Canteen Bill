@@ -1,0 +1,47 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int bill[][7]={{30,42,56,13,45,35,91},{24,34,65,50,82,43,97},{21,40,66,73,15,18,28}};
+    int total[100]={0};
+    for(int i=0;i<3;i++)
+    {
+        for(int j=0;j<7;j++)
+        {
+            total[i]+=bill[i][j];
+        }
+        printf("Total amount spent by student %d : %d\n",i+1,total[i]);
+    }
+    int largest=total[0];
+    int temp;
+    for(int i=0;i<3;i++)
+    {
+            if(total[i]>largest)
+            {
+                largest=total[i];
+                temp=i+1;
+            }
+    }
+    printf("Student who spent the most: %d",temp);
+
+    int day[100]={0};
+    for(int j=0;j<7;j++)
+    {
+        for(int i=0;i<3;i++)
+        {
+            day[j]+=bill[i][j];
+        }
+    }
+    int temp2,highest=day[0];
+    for(int i=0;i<7;i++)
+    {
+        if(day[i]>highest)
+        {
+            highest=day[i];
+            temp2=i+1;
+        }
+    }
+    printf("\nThe day with the highest collection: %d",temp2);
+    return 0;
+}
