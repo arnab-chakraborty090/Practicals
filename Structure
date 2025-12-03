@@ -1,0 +1,59 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Student {
+    char name[50];
+    int roll_number;
+    int marks_subject1;
+    int marks_subject2;
+    int marks_subject3;
+    float total_marks;
+    float percentage;
+};
+
+int main() {
+    struct Student student1;
+
+    const int MAX_MARKS_PER_SUBJECT = 100;
+    const int TOTAL_MAX_MARKS = 3 * MAX_MARKS_PER_SUBJECT;
+
+    printf("--- Student Grade Calculator ---\n");
+
+    printf("Enter student's name: ");
+    if (scanf("%49s", student1.name) != 1) {
+        printf("Error reading name.\n");
+        return 1;
+    }
+
+    printf("Enter student's roll number: ");
+    if (scanf("%d", &student1.roll_number) != 1) {
+        printf("Error reading roll number.\n");
+        return 1;
+    }
+
+    printf("Enter marks for Subject 1 (out of %d): ", MAX_MARKS_PER_SUBJECT);
+    if (scanf("%d", &student1.marks_subject1) != 1) return 1;
+
+    printf("Enter marks for Subject 2 (out of %d): ", MAX_MARKS_PER_SUBJECT);
+    if (scanf("%d", &student1.marks_subject2) != 1) return 1;
+
+    printf("Enter marks for Subject 3 (out of %d): ", MAX_MARKS_PER_SUBJECT);
+    if (scanf("%d", &student1.marks_subject3) != 1) return 1;
+
+    student1.total_marks = student1.marks_subject1 + student1.marks_subject2 + student1.marks_subject3;
+
+    student1.percentage = (student1.total_marks / TOTAL_MAX_MARKS) * 100.0;
+
+    printf("\n--- Student Result Summary ---\n");
+    printf("Name: %s\n", student1.name);
+    printf("Roll Number: %d\n", student1.roll_number);
+    printf("Marks in Subject 1: %d\n", student1.marks_subject1);
+    printf("Marks in Subject 2: %d\n", student1.marks_subject2);
+    printf("Marks in Subject 3: %d\n", student1.marks_subject3);
+    printf("------------------------------\n");
+    printf("Total Marks Obtained: %.0f (Out of %d)\n", student1.total_marks, TOTAL_MAX_MARKS);
+    printf("Percentage: %.2f%%\n", student1.percentage);
+    printf("------------------------------\n");
+
+    return 0;
+}
