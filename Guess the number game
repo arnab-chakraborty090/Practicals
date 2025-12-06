@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include<time.h>
+int main()
+{
+    int random,x=1,guess;
+    time_t t;
+    srand((unsigned)time(&t));
+    random=rand()%101;
+    printf("This is a guess the number game\n\nYou have five tries to find the hidden number\n");
+    while(x<6)
+    {
+        printf("Guess number %d : ",x);
+        scanf("%d",&guess);
+        if(guess==random)
+        {
+                printf("Congratulations!! You have guessed it.");
+                break;
+        }
+        else if(guess>random)
+            printf("Sorry wrong guess!! The number is lower than that.");
+        else
+            printf("Sorry wrong guess!! The number is higher than that");
+        x++;
+        printf("\n");
+    }
+    printf("\nYour five tries are over!!!\nThe hidden number is %d",random);
+    return 0;
+}
